@@ -1,0 +1,48 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[utf8]{vietnam}
+
+\title{MaSSP buổi 2 tóm tắt}
+\author{nnquang.1412 }
+\date{July 2019}
+
+\begin{document}
+
+\maketitle
+
+\section{Unified Framework}
+\texttrm{Unified Framework gồm có dữ liệu đầu vào X (ví dụ 1 tấm hình) và dữ liệu đầu vào Y(thông tin về tấm hình đó). Sau đó từ tấm hình X ta tập trung để các đặc trưng thông qua basis functions rồi sử dụng PCA để chiết xuất ra các đặc trưng đó để thu được các vecto coordinates. Sau đó ta chuyển các vecto này qua 1 không gian có thể comparable với đầu ra của các thông tin dữ liệu đầu vào từ Y nhờ regression }
+\section{PCA}
+\texttrm{Ta biểu diễn 1 dữ liệu đầu vào X theo dạng}
+$$X = y_1X1 + y_2X_2 + ... y_nX_n$$
+với X_i$ là basis vecto và y_i$ là coordinates
+\newline
+Nếu ta biết được các basis vecto thì ta sẽ tìm được các coordinates
+\newline
+\texttrm{Ta sẽ đo được Performance Measure bằng cách chọn $ $X_i$ = $X_0$ + $\sum $a_iX_i$ sao cho $X_i$ sấp xỉ X nhất và ta có thể so sánh 2 vectow bằng cách nhân 2 vecto hoặc đo khoảng cách để ra được reconstruction error}
+\section{Linear Regression}
+\texttrm{Ví dụ đầu vào X ta có 1 căn nhà còn đầu vào Y ta có rất nhiều những thông tin về ngôi nhà đó. Từ đầu vào X ta có thể biểu diễn các yếu tố ảnh hưởng đến giá của ngôi nhà như kích thước, vị trí, khu vực xung quanh, thời tiết,.. qua 1 hàm tuyến tính. Các yếu tố ảnh hưởng đó sẽ được biểu thị qua các vecto. Nhờ Linear Regression ta sẽ tìm được các hệ số ảnh hưởng đến ngôi nhà X}
+$$ X = w_1X_1 + w_2X_2 + ... w_nX_n   $$
+Với $w_i$ là các hệ số còn $X_i$ là các yếu tố ảnh hưởng các basis functions
+\newline
+Từ các hệ số này ta có thể tìm được $y^~$là giá trị dự đoán của 1 ngồi nhà nếu ta có trước các basis functions
+\newline
+$$\mathbf{w} = \mathbf{A}^{\dagger}\mathbf{b} = (\mathbf{\bar{X}}^T\mathbf{\bar{X}})^{\dagger} \mathbf{\bar{X}}^T\mathbf{y}
+$$
+\section{Logistic Regression}
+Đôi khi Linear Regression không được chính xác. Khi đó ta sẽ kết hợp linear regression và Perceptron Learning Algorithm để biểu diễn đầu ra theo  dạng probability. Nó thường được dùng cho các bài toán classification.
+\newline
+Ta sẽ biểu diễn dữ liệu input và kết quả thu được từ ảnh theo 1 mảng Nx1 dưới dạng probability. Có 2 cách để so sánh giữa 2 vecto này là tìm khoảng cách của chúng hoặc sử dụng cross entropy
+\subsection{Cross Entropy}
+Công thức tính hàm loss của Cross Entropy là 
+$$J = -\sum_{i=1} ^{d} P_y_i logP_z_i  $$
+Với $z_i$ là kết quả thu được từ ảnh 
+\section{Softmax}
+Z -> nhân với ma trận trọng số W -> $W_z$ -> sử dụng Softmax để có thể classify được thông qua probability
+\newline
+Công thức hàm Sigmoid: 
+$$\sigma = \frac{1}{1+e^{-s}}    $$
+Công thức của hàm Softmax là 
+$$P_i = softmax x_i = \frac{\sigma(y_i)}{\sum_{j=1}^{d}\sigma(y_i) }   $$
+Hàm này thỏa mãn được tất cả các yêu cầu cần là hàm dương, tổng các $a_i$ = 1, giữ được thứ tự của các $z_i$. Hàm này biểu thị xác suất của diểm dữ liệu x rơi vào class i. 
+\end{document}
