@@ -1,0 +1,20 @@
+<html>
+
+<head>
+    <title>Simple file upload using Python Flask</title>
+</head>
+
+<body>
+    <form action="/handleUpload" method="post" enctype="multipart/form-data">
+        Choose the file: <input type="file" name="photo" /><BR>
+        <input type="submit" value="Upload" />
+    </form>
+    Hello {{name}}
+
+    <form id="moment-pane-upload-form" enctype="multipart/form-data">
+        <input id="moment-pane-file-btn" type="file" name="image" style="display:none" multiple>
+    </form>
+
+</body>
+
+</html>
